@@ -1,0 +1,132 @@
+import React from 'react';
+import './App.css';
+import { DollarCircleOutlined, ShoppingCartOutlined, ShoppingOutlined, UserOutlined } from '@ant-design/icons';
+import { Typography, Space, Card, Statistic, Table, Row, Col, Avatar,Button} from 'antd';
+
+const NavBar = () => (
+
+  <Card
+    style={{
+      backgroundColor: '#00a8ff',
+      color: '#fff',
+      marginBottom: '10px',
+      height: '90px',
+      // display: 'flex',
+      // flexDirection: 'column',
+      
+      
+    }}
+  >
+    <div
+      style={{
+        height: '50px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '4px',
+      
+      
+      }}
+    >
+      <h2>APP MODULES</h2>
+  <div style={{border:'1px solid #fff',display:'flex',flexDirection:'column',justifyContent:'space-between',width:'200px',borderRadius:'100px', margin:'10px'}}>
+  <div class="button-box" >
+                    <div id="btn"></div>
+                    <button type="button" onclick={()=>{
+                      login2()
+                    }} className='one' style={{backgroundColor:'#00a8ff',marginLeft:'20px'}}>Log In</button>
+                    <button type="button" onclick="register()" className='two' >Register</button>
+                </div>
+  </div>
+     {/* <Button  style={{marginLeft:'50%',}} type="primary">Primary  </Button>
+    
+     <Button style={{marginRight:'2%'}}> Primary 2</Button> */}
+      <input type="text" placeholder="Search" className="inputf" />
+    </div>
+    {/* Add your navigation elements here */}
+  </Card>
+);
+
+
+const MainCard = ({ navText, navColor }) => (
+  <div style={{ border: '1px solid #00a8ff',width:'85%',marginTop:'50px 50px',marginLeft:'10%'}}>
+    <NavBar />
+    <Row gutter={[16, 16]} justify="center">
+      {[...Array(19)].map((_, index) => (
+        <Col xs={24} sm={12} md={8} lg={6} xl={4} key={index}>
+          <Card className='move'
+          hoverable
+            style={{
+            // width: '90%',  
+            //   height: 210,
+              margin: '10px',
+              border: '1px solid #00a8ff',
+              marginLeft: 15,
+              marginRight: 20,
+              marginBottom:10,
+            }}
+            
+            cover={
+              <div
+                style={{
+                  backgroundColor: '#00a8ff',
+                  color: '#fff',
+                  fontSize: '17px',
+                  fontWeight: 600,
+                  height: 40,
+                  borderTopRightRadius: 10,
+                  borderTopLeftRadius: 10,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  marginBottom: 0,
+                }}
+              >
+                <h3> 7 </h3>
+              </div>
+            }
+          >
+            
+            <Card.Meta
+              avatar={<Avatar src="https://xsgames.co/randomusers/avatar.php?g=pixel" />}
+              // title="Admin Dashboard"
+              // description="This is the description"
+            />
+                 
+            {/* <div style={{display:'flex',alignItems:'center', justifyContent:'center'}}> */}
+            <ShoppingCartOutlined
+                style={{
+                  color: '#00a8ff',
+                  // backgroundColor: 'rgba(0,255,0,0.25)',
+                  borderRadius: 20,
+                  padding: 8,
+                  margin: 0,
+                  display:'flex',
+                  alignItems:'center',
+                  justifyContent:'center',
+                  fontSize:'2.5rem',
+                  
+                }}
+              />
+            
+          <h2 style={{ display:'flex',
+                  alignItems:'center',
+                  justifyContent:'center',margin:0}}> Dashbords </h2>
+            {/* </div> */}
+          </Card>
+        </Col>
+      ))}
+    </Row>
+  </div>
+);
+
+const App = () => {
+  return (
+    <div style={{ padding: '20px' }}>
+      {/* <NavBar /> */}
+      <MainCard navText="App Modules" navColor="#00a8ff" />
+    </div>
+  );
+};
+
+export default App;
